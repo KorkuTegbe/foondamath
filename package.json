@@ -1,0 +1,24 @@
+{
+  "name": "foondamath",
+  "version": "1.0.0",
+  "description": "FoondaMate Software Engineer Coding Challenge-002",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KorkuTegbe/foondamath.git"
+  },
+  "author": "Justice Etorko-Gbeku",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KorkuTegbe/foondamath/issues"
+  },
+  "homepage": "https://github.com/KorkuTegbe/foondamath#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
