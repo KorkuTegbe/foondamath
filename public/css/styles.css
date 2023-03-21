@@ -80,6 +80,8 @@ body{
 } 
 
 .bot p.text{
+  /* float: left;
+  clear: both; */
   height: auto;
   width:fit-content;
   background-color: #b9acac;
@@ -92,6 +94,8 @@ body{
 }
 
 .user p.text{
+  /* float: right;
+  clear: both; */
   height: auto;
   width:fit-content;
   background-color: #b9acac;
@@ -111,9 +115,17 @@ body{
   padding: 5px 20px;
   height: 60px;
 }
-.chat-box .chat-footer form input {
-  background-color: #273bec81;
+.chat-form{
   width: calc(100% - 60px);
+  position: relative;
+}
+.chat-form input{
+  margin: 0px;
+  width: 100%;
+  outline: none;
+  height: 30px;
+  border-radius: 5px 0px 0px 5px;
+  background-color: #273bec81;
   padding: 10px 20px;
   height: 80%;
   font-weight: bold;
@@ -121,23 +133,30 @@ body{
   border: none;
   font-size: 16px;
 }
-.chat-box .chat-footer input::placeholder {
-  color: #ccc;
-}
-.chat-box .chat-footer .chat-send {
+
+.chat-form button{
+  position: absolute;
+  top: 0;
+  border-radius: 0px 5px 5px 0px;
+  right: -18px;
+  border: none;
+  top: 5px;
+  color: white;
+  transform: translateX(2px);
   width: 40px;
-  height: 80%;
+  height: 66%;
   background: none;
   background-color: #273bec81;
-  border: none;
   cursor: pointer;
-  margin-left: -4px;
 }
-.chat-box .chat-footer .chat-send i {
+.chat-send i {
   font-size: 20px;
   color: #a2cbb6;
   cursor: pointer;
 }
+.chat-box .chat-footer input::placeholder {
+  color: #ccc;
+} 
 
 @media only screen and (max-width: 600px) {
   .chat-container {

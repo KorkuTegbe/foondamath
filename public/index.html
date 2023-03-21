@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>foondamath</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
     <div class="chat-container">
@@ -21,15 +22,15 @@
             <div class="chat-footer">
                 <div class="chat-form">
                     <form action="" id="chat-form">
-                        <input type="text" id="msg" placeholder="Enter equation" autocomplete="off">
-                        <button class="chat-send" type="submit"><i class="fa fa-send"></i>Send</button>
+                        <input type="text" id="equation" placeholder="Enter equation" autocomplete="off">
+                        <button class="chat-send" type="submit"><i class="fa fa-send"></i></button>
                     </form>
                 </div>
             </div>
         </div>        
     </div>
 
-
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+let socket;
 
 const chatMessages = document.querySelector('.chat-messages')
 const form = document.querySelector('form')
@@ -8,12 +9,12 @@ const createChatMessage = (event, msg, sender) => {
     messageSection.className = 'message-section'
     const message = document.createElement('div')
     message.className = 'message'
-    if(sender == 'bot'){
+    if(sender == 'foondabot'){
         message.classList.add('bot')
     }else{
         message.classList.add('user')
     }
-    message.innerHTML = `<p class="meta">${sender} <span>${msg.time}</span></p>
+    message.innerHTML = `<p class="meta">${sender}</span></p>
     <p class="text">${msg}</p>`
     messageSection.appendChild(message)
     chatMessages.appendChild(messageSection)
@@ -22,16 +23,45 @@ const createChatMessage = (event, msg, sender) => {
 }
 
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
+window.addEventListener('load', () => {
+    localStorage.clear()
+    const name = prompt('Enter your name: ');
+    socket = io();
 
-    let msg = e.target.elements.msg.value
+    socket.emit('join', { event: 'join', data: {name} })
+    socket.on('join', (event) => {
+        createChatMessage(event, event.message, 'foondabot')
+    })
 
-    if(!msg) return false
+    socket.on('input_equation', (event) => {
+        createChatMessage(event, event.message, 'foondabot')
+    })
 
-    createChatMessage('some-event', msg, 'bot')
 
-    e.target.elements.msg.value = ''
-    e.target.elements.msg.focus()
+
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+    
+        let equation = e.target.elements.equation.value
+    
+        if(!equation) return false
+
+        const data = {
+            eventName: 'input_equation',
+            equation: equation
+        }
+    
+        // createChatMessage('input_equation', equation, name)
+        createChatMessage(data.eventName, data.equation, name)
+
+        // socket.emit('input_equation', equation);
+        socket.emit('input_equation', data)
+    
+        e.target.elements.equation.value = ''
+        e.target.elements.equation.focus()
+    
+    })
+    
 
 })
