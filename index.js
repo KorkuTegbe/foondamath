@@ -23,10 +23,12 @@ io.on('connection', (socket) => {
     socket.on("input_equation", (event) => {
         solver.getEquation({ socket, event });
     });
+
+    
     
 })
 
 const PORT = process.env.PORT ?? 3000
-server.listen(3400, ()=>{
+server.listen(PORT, ()=>{
     console.log(`Server started on port ${PORT}`)
 })

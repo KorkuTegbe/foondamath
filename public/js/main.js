@@ -37,7 +37,9 @@ window.addEventListener('load', () => {
         createChatMessage(event, event.message, 'foondabot')
     })
 
-
+    socket.on('solution', (event) => {
+        createChatMessage(event, event.message, 'foondabot')
+    })
 
 
     form.addEventListener('submit', (e) => {
@@ -51,17 +53,14 @@ window.addEventListener('load', () => {
             eventName: 'input_equation',
             equation: equation
         }
-    
-        // createChatMessage('input_equation', equation, name)
+
         createChatMessage(data.eventName, data.equation, name)
 
-        // socket.emit('input_equation', equation);
         socket.emit('input_equation', data)
-    
+
         e.target.elements.equation.value = ''
         e.target.elements.equation.focus()
     
     })
-    
 
 })
