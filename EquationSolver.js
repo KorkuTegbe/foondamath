@@ -1,4 +1,5 @@
 const Equation = require('./Equation');
+// const runPrompt = require('./openai');
 
 class EquationSolverEvent {
     constructor({ data, eventName, message } ) {
@@ -34,24 +35,17 @@ class EquationSolver {
         this.emitEvent(event)
     }
 
-    getEquation({event}){
+    async getEquation({event}){
         const input_equation = event.equation;
         const equation = new Equation(input_equation);
-        const isValidEqn = equation.validateEquation();
-        if(!isValidEqn){
-            this.emitEquationSolverEvent({
-                message: `Please enter a valid equation. The equation should be in the form of ax + b = c or ax + b = cx + d`,
-                eventName: 'input_equation'
-            });
-        }else{
-            const solution = equation.solve()
-            this.emitSolution(solution)
-        }     
+        const solution = await equation.solve()
+        
+        this.emitSolution(solution)
     }  
     
     emitSolution(solution) {
         this.emitEquationSolverEvent({
-            message: `Here's how to solve the equation \n ${solution}`,
+            message: `${solution}`,
             eventName: 'solution',
         })
     }

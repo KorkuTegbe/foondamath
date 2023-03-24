@@ -8,20 +8,23 @@ Foondamath is a web based application that solves equations and lists the steps 
 
 ---
 
--   Node.js & Express.js => used as the primary backend technologies for building the server and  logic.
+-   Node.js & Express.js => used as the primary backend technologies for the runtime.
+-   openai => used for the solving the equations
 -   Socket.io => used for enabling real-time communication between the server and clients
--   algebra.js => math library used for solving the equations
--  HTML, CSS, Javacript => for the UI
+-   HTML, CSS, Javacript => for the UI
 
 ### How it works
 ---
 
-- Foondamath was built with socket.io to enable realtime communication between the server and the client;
-- A prompt is sent to the user to input their name
-- The application server then sends a message asking for the client to send an equation
-- First, the server validates whether the equation is a linear equation in the form of `ax + b = c` or `ax + b = cx + d`
-- The user input is matched against a regex pattern to check if it matches the required format 
-- When validation is passed, the server responds with a solution to the equation and the steps used to arrive at the solution
+1. Introduction - Foondamath is a web-based application designed to solve equations and list the steps involved in arriving at the final solution. To use the application, users simply enter an equation into the input box on the main page and hit the send button.
+
+2. User Interface - The user interface for Foondamath is a chat interface, easy to use. It includes an input box where users can enter their equations, as well as a send button that initiates the solution process. Once the solution is complete, the steps involved in solving the equation are displayed on the screen.
+
+3. Functionality - Foondamath uses OpenAI to solve equations entered by the user. When a user enters an equation into the input box, the application sends the equation to OpenAI's API to parse the equation and identify the variables and constants involved. From there, OpenAI uses advanced mathematical algorithms and natural language processing to solve the equation step-by-step. Once the solution is found, the results and solution steps are returned to the application, and Foondamath displays the solution steps on the screen for the user to view.
+
+4. Backend - Foondamath is built using Node.js and Express, two popular server-side technologies, and utilizes OpenAI's mathematical language processing algorithm to solve equations. When a user enters an equation into the input box on the website, the application sends the equation to OpenAI's API to parse the equation and identify the variables and constants required to solve it. OpenAI then uses its advanced mathematical algorithms and natural language processing to solve the equation step-by-step. Once the solution is found, Foondamath displays the solution steps on the screen for the user to view. 
+
+5. Conclusion - Overall, Foondamath is a powerful tool for solving equations quickly and efficiently. Whether you're a student, teacher, or professional, the application offers an easy-to-use interface and robust functionality that makes understanding to how solve equations simple.
 
 
 
@@ -39,9 +42,6 @@ Foondamath is a web based application that solves equations and lists the steps 
     - `npm run start`
 6. Open the application in your browser:
     - `http://localhost:3400`
-
-### Usage
----
 
 
 ## Thanks!!!

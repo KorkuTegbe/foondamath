@@ -24,7 +24,8 @@ const createChatMessage = (event, msg, sender) => {
 
 
 window.addEventListener('load', () => {
-    localStorage.clear()
+    
+    // localStorage.clear()
     const name = prompt('Enter your name: ');
     socket = io();
 
@@ -38,6 +39,7 @@ window.addEventListener('load', () => {
     })
 
     socket.on('solution', (event) => {
+        // console.log(JSON.parse(event.message))
         createChatMessage(event, event.message, 'foondabot')
     })
 
