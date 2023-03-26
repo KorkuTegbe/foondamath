@@ -3,6 +3,9 @@
 ## About
 Foondamath is a web based application that solves equations and lists the steps involved at arriving at the final solution/answer. The name **foondamath** was coined from **foondamate** which is the company's name and **math** (😂🙈) because it helps users to learn mathematics. This is my submission for the FoondaMate Software Engineer Coding Challenge-002
 
+### Live site
+https://foondamath.onrender.com
+---
 
 ### Technologies Used
 
